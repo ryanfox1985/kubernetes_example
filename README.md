@@ -10,18 +10,25 @@ The Docker images must be orchestrated by an orchestration solution of your choi
 
 Please attach also a description of the testing environment.
 
+## Kubernetes architecture example:
+
+![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/kubernetes_api_architecture.png "Example architecture")
+
+
 ## rails_app
 
 An example Ruby on Rails application for tracking user sessions and uses a
 database to save these data.
 [Docker image](https://hub.docker.com/r/ryanfox1985/kubernetes_rails_app)
 
-![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/rails_app/screenshot_app.png "Image1")
+![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/rails_app/screenshot_app.png "MyApp screenshot")
 
 
 ## 1- Kubernetes setup
 
-Setting up a cluster is as simple as running:
+![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/Kubernetes_diagram.png "MyApp architecture")
+
+Setting up a cluster with 1 master and 1 minion is as simple as running:
 
     export KUBERNETES_PROVIDER=vagrant
     curl -sS https://get.k8s.io | bash
