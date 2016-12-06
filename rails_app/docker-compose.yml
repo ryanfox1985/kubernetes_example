@@ -1,0 +1,10 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    image: ryanfox1985/kubernetes_rails_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

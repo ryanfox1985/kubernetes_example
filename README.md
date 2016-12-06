@@ -18,20 +18,30 @@ Please attach also a description of the testing environment.
 ## rails_app
 
 An example Ruby on Rails application for tracking user sessions and uses a
-database to save these data.
-[Docker image](https://hub.docker.com/r/ryanfox1985/kubernetes_rails_app)
+database to save these data. This application uses
+[Ahoy gem](https://github.com/ankane/ahoy) to track the session with Javascript
+(a browser is required).
+
+### Docker
+
+- [Docker image](https://hub.docker.com/r/ryanfox1985/kubernetes_rails_app)
+- [Docker compose](https://github.com/ryanfox1985/kubernetes_example/raw/master/rails_app/docker-compose.yml)
+
 
 ![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/rails_app/screenshot_app.png "MyApp screenshot")
 
 
 ## 1- Kubernetes setup
 
-![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/Kubernetes_diagram.png "MyApp architecture")
-
-Setting up a cluster with 1 master and 1 minion is as simple as running:
+Setting up a cluster (with 1 master and 1 minion) is as simple as running:
 
     export KUBERNETES_PROVIDER=vagrant
     curl -sS https://get.k8s.io | bash
+
+
+### Node schema:
+
+![alt text](https://github.com/ryanfox1985/kubernetes_example/raw/master/Kubernetes_diagram.png "MyApp architecture")
 
 ### Get cluster info
     ./kubernetes/cluster/kubectl.sh cluster-info
@@ -39,7 +49,7 @@ Setting up a cluster with 1 master and 1 minion is as simple as running:
 ### Get nodes
     ./kubernetes/cluster/kubectl.sh get nodes
 
-## 2- Kubernetes run services
+## 2- Run services
     # Load secrets
     ./kubernetes/cluster/kubectl.sh create -f ./secrets.yml
 
