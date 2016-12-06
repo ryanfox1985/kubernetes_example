@@ -1,0 +1,16 @@
+# Ignore bundler config.
+rails_app/.bundle
+
+# Ignore the default SQLite database.
+rails_app/db/*.sqlite3
+rails_app/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+rails_app/log/*
+rails_app/tmp/*
+
+# Ignore Byebug command history file.
+rails_app/.byebug_history
+
+kubernetes.tar.gz
+kubernetes/*

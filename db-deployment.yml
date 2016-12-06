@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-pg
+  labels:
+    app: myapp
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: myapp
+    tier: pg
+  clusterIP: None
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: myapp-pg
+  labels:
+    app: myapp
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: myapp
+        tier: pg
+    spec:
+      containers:
+      - name: pg
+        image: postgres
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysecrets
+              key: db_username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysecrets
+              key: db_password        
+        ports:
+        - name: pg
+          containerPort: 5432

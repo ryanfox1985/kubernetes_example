@@ -1,0 +1,23 @@
+
+<h2>Example app:</h2>
+
+Visits counter: <%= @visits_count %>
+
+<h2>Last <%= @last_visits.count %> visits:</h2>
+<table>
+  <tr>
+    <td><strong>Token</strong></td>
+    <td><strong>User agent</strong></td>
+    <td><strong>Started at</strong></td>
+    <td><strong>Events</strong></td>
+  </tr>
+
+  <% @last_visits.each do |visit| %>
+    <tr>
+      <td><%= visit.visit_token %></td>
+      <td><%= visit.user_agent %></td>
+      <td><%= visit.started_at %></td>
+      <td><%= visit.ahoy_events.count %></td>
+    </tr>
+  <% end %>
+</table>
